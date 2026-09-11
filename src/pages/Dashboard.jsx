@@ -5,6 +5,7 @@ import { fetchExpenses } from '../api/expenses.js'
 import { fetchSummary, fetchTrend } from '../api/analytics.js'
 import BudgetPanel from '../components/dashboard/BudgetPanel.jsx'
 import CategoryBreakdown from '../components/dashboard/CategoryBreakdown.jsx'
+import ChatWidget from '../components/dashboard/ChatWidget.jsx'
 import ExpenseForm from '../components/dashboard/ExpenseForm.jsx'
 import ExpenseList from '../components/dashboard/ExpenseList.jsx'
 import IncomeEditor from '../components/dashboard/IncomeEditor.jsx'
@@ -108,6 +109,8 @@ export default function Dashboard() {
           <ExpenseList expenses={expenses} onChanged={loadData} />
         </>
       )}
+
+      <ChatWidget />
     </div>
   )
 }

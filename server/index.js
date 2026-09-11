@@ -6,6 +6,7 @@ import expenseRoutes from './routes/expenses.routes.js'
 import incomeRoutes from './routes/income.routes.js'
 import analyticsRoutes from './routes/analytics.routes.js'
 import budgetRoutes from './routes/budgets.routes.js'
+import chatRoutes from './routes/chat.routes.js'
 
 const app = express()
 const PORT = process.env.PORT || 4000
@@ -18,6 +19,7 @@ app.use('/api/expenses', expenseRoutes)
 app.use('/api/income', incomeRoutes)
 app.use('/api/analytics', analyticsRoutes)
 app.use('/api/budgets', budgetRoutes)
+app.use('/api/chat', chatRoutes)
 
 app.listen(PORT, () => {
   console.log(`API http://localhost:${PORT} adresinde çalışıyor`)
