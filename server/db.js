@@ -16,7 +16,37 @@ db.exec(`
     email TEXT NOT NULL UNIQUE,
     password_hash TEXT NOT NULL,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
-  )
+  );
+
+  CREATE TABLE IF NOT EXISTS expenses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    amount REAL NOT NULL,
+    category TEXT NOT NULL,
+    description TEXT,
+    expense_date TEXT NOT NULL,
+    receipt_path TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_expenses_user_date ON expenses(user_id, expense_date);
+
+  CREATE TABLE IF NOT EXISTS monthly_income (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    month TEXT NOT NULL,
+    amount REAL NOT NULL,
+    UNIQUE(user_id, month)
+  );
+
+  CREATE TABLE IF NOT EXISTS category_budgets (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    month TEXT NOT NULL,
+    category TEXT NOT NULL,
+    amount REAL NOT NULL,
+    UNIQUE(user_id, month, category)
+  );
 `)
 
 export default db
