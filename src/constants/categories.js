@@ -17,16 +17,17 @@ export const CATEGORY_EMOJI = Object.fromEntries(
   CATEGORIES.map(({ name, emoji }) => [name, emoji]),
 )
 
-// Chart-only palette: 7 dedicated hues + one neutral "Diğer" rollup bucket
-// (the backend folds low-volume categories into "Diğer" for chart aggregation
-// so no chart ever exceeds the validated 8-color categorical palette).
 export const CHART_COLORS = {
-  'Yeme & İçme': '#2a78d6',
-  Market: '#eb6834',
-  Ulaşım: '#1baf7a',
-  'Kira / Ev': '#eda100',
-  Faturalar: '#e87ba4',
-  Alışveriş: '#008300',
-  Eğlence: '#4a3aa7',
-  Diğer: '#898781',
+  'Yeme & İçme': '#a5c4e9',
+  Market: '#e9bca5',
+  Ulaşım: '#a5e9cf',
+  'Kira / Ev': '#e9d2a5',
+  Faturalar: '#e9a5bc',
+  Alışveriş: '#a5e9a5',
+  Eğlence: '#b9a5e9',
+  Sağlık: '#e9a9a5',
+  Eğitim: '#a5dee9',
+  Tatil: '#c5a187',
+  Abonelikler: '#e3e9a5',
+  Diğer: '#b8b8b8',
 }

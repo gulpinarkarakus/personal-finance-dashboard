@@ -24,7 +24,7 @@ export default function MonthlyTrendChart({ trend }) {
   return (
     <div className="panel">
       <div className="trend-header">
-        <h2 className="panel-title">Aylık Gelir / Gider</h2>
+        <h2 className="panel-title">📊 Aylık Gelir / Gider</h2>
         <div className="chart-legend">
           <span className="chart-legend-item">
             <span className="chart-legend-swatch" style={{ background: INCOME_COLOR }} />

@@ -77,7 +77,7 @@ export default function ExpenseForm({ onCreated }) {
 
   return (
     <form className="panel expense-form" onSubmit={handleSubmit}>
-      <h2 className="panel-title">Harcama Ekle</h2>
+      <h2 className="panel-title">➕ Harcama Ekle</h2>
 
       <div className="expense-form-grid">
         <div className="auth-field">

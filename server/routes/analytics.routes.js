@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import db from '../db.js'
 import { requireAuth } from '../auth.js'
-import { CATEGORIES, CHART_PRIMARY_CATEGORIES, CHART_FOLD_LABEL } from '../categories.js'
+import { CATEGORIES } from '../categories.js'
 
 const router = Router()
 router.use(requireAuth)
@@ -29,14 +29,7 @@ router.get('/summary', (req, res) => {
     realTotals.set(row.category, (realTotals.get(row.category) ?? 0) + row.amount)
   }
 
-  const chartTotals = new Map(CHART_PRIMARY_CATEGORIES.map((category) => [category, 0]))
-  chartTotals.set(CHART_FOLD_LABEL, 0)
-  for (const [category, amount] of realTotals) {
-    const bucket = CHART_PRIMARY_CATEGORIES.includes(category) ? category : CHART_FOLD_LABEL
-    chartTotals.set(bucket, (chartTotals.get(bucket) ?? 0) + amount)
-  }
-
-  const byCategory = [...chartTotals.entries()]
+  const byCategory = [...realTotals.entries()]
     .map(([category, amount]) => ({
       category,
       amount,

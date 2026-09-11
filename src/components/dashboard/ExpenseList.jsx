@@ -10,7 +10,7 @@ export default function ExpenseList({ expenses, onChanged }) {
 
   return (
     <div className="panel">
-      <h2 className="panel-title">Harcamalar</h2>
+      <h2 className="panel-title">🧾 Harcamalar</h2>
 
       {expenses.length === 0 ? (
         <p className="empty-state">Bu ay için henüz harcama girilmedi.</p>

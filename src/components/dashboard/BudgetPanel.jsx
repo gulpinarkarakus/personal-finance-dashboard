@@ -38,7 +38,7 @@ export default function BudgetPanel({ month, budgets, onSaved }) {
 
   return (
     <div className="panel">
-      <h2 className="panel-title">Bütçe</h2>
+      <h2 className="panel-title">🎯 Bütçe</h2>
 
       {budgets.length === 0 ? (
         <p className="empty-state">Henüz bir kategori bütçesi belirlemedin.</p>

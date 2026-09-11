@@ -1,69 +1,107 @@
 .dashboard-page {
+  position: relative;
   min-height: 100vh;
   background: #eef1f6;
-  padding: 32px 24px 80px;
+  padding: 0 24px 80px;
   box-sizing: border-box;
 }
 
-.dashboard-header {
+.dashboard-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('../assets/dashboard-coins.jpg');
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dashboard-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-hero {
+  margin: 0 -24px 0;
+  padding: 40px 24px 64px;
+  background: linear-gradient(135deg, #0b2a5c 0%, #1a4fa0 65%, #2a63c4 100%);
+  border-radius: 0 0 32px 32px;
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(11, 42, 92, 0.25);
+}
+
+.dashboard-hero-top {
   max-width: 1100px;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
 }
 
-.dashboard-header h1 {
+.dashboard-eyebrow {
   margin: 0 0 4px;
-  font-size: 1.6rem;
-  color: #0b2a5c;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.02em;
 }
 
-.dashboard-subtitle {
+.dashboard-hero-top h1 {
   margin: 0;
-  color: #5b6472;
+  font-size: 1.9rem;
+  color: #fff;
 }
 
 .logout-button {
-  background: #fff;
-  border: 1px solid #d7dce3;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 10px;
   padding: 10px 18px;
   font-weight: 600;
-  color: #0b2a5c;
+  color: #fff;
   cursor: pointer;
   white-space: nowrap;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s ease;
 }
 
 .logout-button:hover {
-  background: #f3f5f9;
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .month-switcher {
   max-width: 1100px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 16px;
   font-weight: 700;
-  color: #0b2a5c;
+  color: #fff;
 }
 
 .month-switcher button {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  border: 1px solid #d7dce3;
-  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
   cursor: pointer;
   font-size: 1.1rem;
-  color: #0b2a5c;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+.month-switcher button:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .stat-row {
   max-width: 1100px;
-  margin: 0 auto 20px;
+  margin: -40px auto 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
@@ -76,13 +114,26 @@
 }
 
 .stat-tile {
+  position: relative;
   background: #fff;
   border-radius: 16px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  box-shadow: 0 10px 30px rgba(15, 32, 67, 0.06);
+  box-shadow: 0 14px 34px rgba(15, 32, 67, 0.14);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.stat-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(15, 32, 67, 0.18);
+}
+
+.stat-tile-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-bottom: 2px;
 }
 
 .stat-tile-label {
@@ -144,13 +195,30 @@
 }
 
 .panel {
+  position: relative;
   max-width: 1100px;
   margin: 0 auto 20px;
   background: #fff;
   border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(15, 32, 67, 0.06);
+  padding: 26px 24px 24px;
+  box-shadow: 0 10px 30px rgba(15, 32, 67, 0.07);
   box-sizing: border-box;
+  overflow: hidden;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2a78d6, #eda100);
+}
+
+.panel:hover {
+  box-shadow: 0 16px 40px rgba(15, 32, 67, 0.12);
 }
 
 .dashboard-grid .panel {
@@ -160,7 +228,8 @@
 
 .panel-title {
   margin: 0 0 16px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #0b2a5c;
 }
 

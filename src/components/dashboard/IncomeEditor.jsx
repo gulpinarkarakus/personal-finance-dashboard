@@ -25,6 +25,9 @@ export default function IncomeEditor({ month, income, onSaved }) {
   if (!editing) {
     return (
       <div className="stat-tile">
+        <span className="stat-tile-icon" aria-hidden="true">
+          💰
+        </span>
         <span className="stat-tile-label">Aylık Gelir</span>
         <span className="stat-tile-value">{formatCurrency(income)}</span>
         <button
@@ -43,6 +46,9 @@ export default function IncomeEditor({ month, income, onSaved }) {
 
   return (
     <form className="stat-tile" onSubmit={handleSave}>
+      <span className="stat-tile-icon" aria-hidden="true">
+        💰
+      </span>
       <span className="stat-tile-label">Aylık Gelir</span>
       <input
         type="number"

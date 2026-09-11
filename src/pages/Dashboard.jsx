@@ -54,37 +54,40 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-page">
-      <header className="dashboard-header">
-        <div>
-          <h1>Merhaba, {user?.name}</h1>
-          <p className="dashboard-subtitle">Finansına genel bir bakış</p>
+      <section className="dashboard-hero">
+        <div className="dashboard-hero-top">
+          <div>
+            <p className="dashboard-eyebrow">👋 Tekrar hoş geldin</p>
+            <h1>{user?.name}</h1>
+          </div>
+          <button type="button" className="logout-button" onClick={handleLogout}>
+            Çıkış Yap
+          </button>
         </div>
-        <button type="button" className="logout-button" onClick={handleLogout}>
-          Çıkış Yap
-        </button>
-      </header>
 
-      <div className="month-switcher">
-        <button type="button" onClick={() => setMonth((m) => shiftMonth(m, -1))} aria-label="Önceki ay">
-          ‹
-        </button>
-        <span>{monthLabel(month)}</span>
-        <button type="button" onClick={() => setMonth((m) => shiftMonth(m, 1))} aria-label="Sonraki ay">
-          ›
-        </button>
-      </div>
+        <div className="month-switcher">
+          <button type="button" onClick={() => setMonth((m) => shiftMonth(m, -1))} aria-label="Önceki ay">
+            ‹
+          </button>
+          <span>{monthLabel(month)}</span>
+          <button type="button" onClick={() => setMonth((m) => shiftMonth(m, 1))} aria-label="Sonraki ay">
+            ›
+          </button>
+        </div>
+      </section>
 
       {!loading && summary && trend && (
         <>
           <div className="stat-row">
             <IncomeEditor month={month} income={summary.income} onSaved={loadData} />
-            <StatTile label="Aylık Gider" value={formatCurrency(summary.totalSpent)} />
+            <StatTile icon="💸" label="Aylık Gider" value={formatCurrency(summary.totalSpent)} />
             <StatTile
+              icon="🏦"
               label="Birikim"
               value={formatCurrency(summary.remaining)}
               tone={summary.remaining < 0 ? 'negative' : 'positive'}
             />
-            <StatTile label="Tasarruf Oranı" value={formatPercent(summary.savingsRate)} />
+            <StatTile icon="📈" label="Tasarruf Oranı" value={formatPercent(summary.savingsRate)} />
           </div>
 
           <MonthlyTrendChart trend={trend} />

@@ -14,7 +14,7 @@ export default function SpendingTimeline({ timeline, peakDay, peakWeek }) {
   if (maxValue === 0) {
     return (
       <div className="panel">
-        <h2 className="panel-title">Zaman İçinde Harcama</h2>
+        <h2 className="panel-title">📅 Zaman İçinde Harcama</h2>
         <p className="empty-state">Bu ay için henüz harcama girilmedi.</p>
       </div>
     )
@@ -25,7 +25,7 @@ export default function SpendingTimeline({ timeline, peakDay, peakWeek }) {
 
   return (
     <div className="panel">
-      <h2 className="panel-title">Zaman İçinde Harcama</h2>
+      <h2 className="panel-title">📅 Zaman İçinde Harcama</h2>
 
       {peakWeek && (
         <p className="timeline-callout">

@@ -13,7 +13,7 @@ export default function CategoryBreakdown({ byCategory, topCategories, totalSpen
   if (byCategory.length === 0) {
     return (
       <div className="panel">
-        <h2 className="panel-title">Bu Ay Harcamalar Nereye Gitti?</h2>
+        <h2 className="panel-title">🍩 Bu Ay Harcamalar Nereye Gitti?</h2>
         <p className="empty-state">Bu ay için henüz harcama girilmedi.</p>
       </div>
     )
@@ -31,7 +31,7 @@ export default function CategoryBreakdown({ byCategory, topCategories, totalSpen
 
   return (
     <div className="panel">
-      <h2 className="panel-title">Bu Ay Harcamalar Nereye Gitti?</h2>
+      <h2 className="panel-title">🍩 Bu Ay Harcamalar Nereye Gitti?</h2>
 
       {topCategories.length > 0 && (
         <div className="top-categories">
